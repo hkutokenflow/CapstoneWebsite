@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU-TokenFlow | Features</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tech.html">Technology</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="demo.html">Demo</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>Features</h1>
+        </header>
+        
+        <section>
+            <h2>Multilingual Support</h2>
+            <p>HKU-TokenFlow supports text processing in multiple languages including Chinese, English, Japanese, and more, capable of accurately analyzing the textual structure and semantics of various languages.</p>
+            <img src="multilingual.jpg" alt="Multilingual Support Example" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block;">
+            <p>Supported languages include:</p>
+            <ul>
+                <li>Chinese (Simplified and Traditional)</li>
+                <li>English</li>
+                <li>Japanese</li>
+                <li>Korean</li>
+                <li>French</li>
+                <li>German</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>High-Performance Processing</h2>
+            <p>Optimized parallel processing architecture supports large-scale text analysis, with processing speeds 300% faster than traditional methods. The system can simultaneously process:</p>
+            <ul>
+                <li>Long texts of over 1 million characters in a single operation</li>
+                <li>Up to 1,000 documents in parallel</li>
+                <li>Real-time streaming text data</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Flexible API</h2>
+            <p>RESTful interfaces and Python SDK, easily integrated into various application scenarios. The API supports:</p>
+            <ul>
+                <li>Text analysis operations</li>
+                <li>Batch processing</li>
+                <li>Custom processing pipelines</li>
+                <li>Result formatting</li>
+            </ul>
+            <pre><code>
+# Python SDK Usage Example
+from hku_tokenflow import TokenFlow
+
+flow = TokenFlow(api_key="your_api_key")
+result = flow.analyze("This is a sample text for analysis", language="en")
+print(result.summary())
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Visualization Analysis</h2>
+            <p>Intuitive text analysis result displays help users better understand text data. Visualization features include:</p>
+            <ul>
+                <li>Word frequency statistics charts</li>
+                <li>Sentiment analysis heat maps</li>
+                <li>Semantic relationship network graphs</li>
+                <li>Topic distribution radar charts</li>
+                <li>Time-series trend graphs</li>
+            </ul>
+            <img src="visualization.jpg" alt="Visualization Analysis Example" style="width: 100%; max-width: 500px; margin: 1rem auto; display: block;">
+        </section>
+        
+        <section>
+            <h2>Custom Workflows</h2>
+            <p>Configurable processing pipelines meet different application scenarios. Users can:</p>
+            <ul>
+                <li>Select specific processing steps</li>
+                <li>Adjust processing parameters</li>
+                <li>Define custom processing components</li>
+                <li>Save and share processing configurations</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Batch Processing</h2>
+            <p>Support for batch file uploads and processing improves efficiency. Batch processing features support:</p>
+            <ul>
+                <li>Multiple file formats (TXT, PDF, DOCX, etc.)</li>
+                <li>Batch import and export</li>
+                <li>Processing progress tracking</li>
+                <li>Batch result export</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 HKU-TokenFlow | Department of Computer Science, The University of Hong Kong</p>
+    </footer>
+</body>
+</html> 

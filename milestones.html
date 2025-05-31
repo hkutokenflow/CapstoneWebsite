@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU TokenFlow | Milestones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #cda45e;
+            --dark-bg: #0c0b09;
+            --secondary-bg: #1a1814;
+            --light-text: #fff;
+            --semitransparent: rgba(0, 0, 0, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background-color: var(--secondary-bg);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            width: 1140px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--gold-color);
+        }
+        
+        .language-select a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .language-select a:hover {
+            color: var(--gold-color);
+        }
+        
+        header {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-color);
+        }
+        
+        nav ul li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover:before, nav ul li a.active:before {
+            width: 100%;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 8px 25px;
+            background: var(--gold-color);
+            color: var(--dark-bg);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid var(--gold-color);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold-color);
+        }
+        
+        .hero {
+            background: linear-gradient(var(--semitransparent), var(--semitransparent)), url('https://source.unsplash.com/random/1920x1080/?blockchain') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content h1 span {
+            color: var(--gold-color);
+        }
+        
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            line-height: 1;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+        
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+        
+        .section-title h3::after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .section-title h3::before {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .milestone-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .milestone-card {
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            flex: 1;
+            min-width: 300px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .milestone-card:hover {
+            background-color: var(--gold-color);
+            transform: translateY(-10px);
+        }
+        
+        .milestone-card:hover .milestone-number,
+        .milestone-card:hover .milestone-title,
+        .milestone-card:hover .milestone-desc {
+            color: var(--dark-bg);
+        }
+        
+        .milestone-number {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gold-color);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .milestone-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-desc {
+            font-size: 15px;
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+        
+        /* Timeline Table Styling */
+        .timeline-table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #37332a;
+            background-color: var(--secondary-bg);
+        }
+        
+        .timeline-table th {
+            background-color: var(--secondary-bg);
+            color: var(--gold-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 2px solid var(--gold-color);
+        }
+        
+        .timeline-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #37332a;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .timeline-table tr:hover td {
+            background-color: #252420;
+            color: var(--gold-color);
+        }
+        
+        .timeline-table td:first-child {
+            font-weight: 600;
+            color: var(--gold-color);
+            width: 150px;
+        }
+        
+        footer {
+            background: #0c0b09;
+            border-top: 1px solid #37332a;
+            padding: 30px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> u3563855@connect.hku.hk</span>
+                    <span><i class="fas fa-phone"></i> +852 9422 4861</span>
+                </div>
+                <div class="language-select">
+                    <a href="#" class="active">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">HKU <span>TokenFlow</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="proposal.html">Proposal</a></li>
+                        <li><a href="milestones.html" class="active">Milestones</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="proposal.html" class="cta-button">View Proposal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Project <span>Milestones</span></h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ROADMAP</h2>
+                <h3>Project Development Timeline</h3>
+            </div>
+            
+            <p class="text-center" style="text-align: center; margin-bottom: 50px;">
+                Our TokenFlow project follows a carefully planned development process. Below are our key milestones for successful implementation at HKU:
+            </p>
+            
+            <div class="milestone-cards">
+                <div class="milestone-card">
+                    <div class="milestone-number">3/10 - 4/7</div>
+                    <h4 class="milestone-title">Project Initiation</h4>
+                    <p class="milestone-desc">Development of detailed project proposal, followed by comprehensive literature review of blockchain applications in education and establishing the methodology for the TokenFlow system.</p>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-number">5/5 - 5/18</div>
+                    <h4 class="milestone-title">Technical Development</h4>
+                    <p class="milestone-desc">Implementation of the Ethereum blockchain platform for our token ecosystem, along with the creation of a full UI design draft for the TokenFlow project interface.</p>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-number">6/1 - 6/16</div>
+                    <h4 class="milestone-title">Documentation & Reporting</h4>
+                    <p class="milestone-desc">Preparation of the interim report and presentation on HKU TokenFlow development progress, followed by the first comprehensive draft of the full project report.</p>
+                </div>
+            </div>
+            
+            <div class="milestone-cards" style="margin-top: 30px;">
+                <div class="milestone-card">
+                    <div class="milestone-number">7/7 - 7/15</div>
+                    <h4 class="milestone-title">System Completion</h4>
+                    <p class="milestone-desc">Finalization of the complete token system with all core functionality implemented, alongside the development and launch of the project webpage for public access.</p>
+                </div>
+                
+                <div class="milestone-card">
+                    <div class="milestone-number">7/18</div>
+                    <h4 class="milestone-title">Project Conclusion</h4>
+                    <p class="milestone-desc">Submission of the finalized comprehensive project report documenting the entire development process, technical implementation, challenges, and outcomes of the HKU TokenFlow system.</p>
+                </div>
+            </div>
+            
+            <!-- Detailed Timeline Table Section -->
+            <div class="timeline-section" style="margin-top: 80px;">
+                <div class="section-title">
+                    <h2>PROJECT SCHEDULE</h2>
+                    <h3>Detailed Timeline & Deliverables</h3>
+                </div>
+                
+                <p class="text-center" style="text-align: center; margin-bottom: 30px;">
+                    Below is our detailed project schedule with specific dates and deliverables for the HKU TokenFlow project:
+                </p>
+                
+                <div class="timeline-table-container">
+                    <table class="timeline-table">
+                        <thead>
+                            <tr>
+                                <th>Timeline</th>
+                                <th>Deliverable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3/10</td>
+                                <td>Detailed Proposal</td>
+                            </tr>
+                            <tr>
+                                <td>4/7</td>
+                                <td>Update 1: Introduction: Literature Review + Methodology</td>
+                            </tr>
+                            <tr>
+                                <td>5/5</td>
+                                <td>Update 2: Implementation of Ethereum Platform</td>
+                            </tr>
+                            <tr>
+                                <td>5/18</td>
+                                <td>Full draft of UI design for the project</td>
+                            </tr>
+                            <tr>
+                                <td>6/1</td>
+                                <td>Interim Report and Presentation: Write-up of developing HKU TokenFlow</td>
+                            </tr>
+                            <tr>
+                                <td>6/16</td>
+                                <td>Update 3: First draft of full report</td>
+                            </tr>
+                            <tr>
+                                <td>7/7</td>
+                                <td>Update 4: Finalized token system</td>
+                            </tr>
+                            <tr>
+                                <td>7/15</td>
+                                <td>Project Webpage</td>
+                            </tr>
+                            <tr>
+                                <td>7/18</td>
+                                <td>Finalized Report</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HKU TokenFlow | Department of Computer Science, The University of Hong Kong</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU TokenFlow | Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #cda45e;
+            --dark-bg: #0c0b09;
+            --secondary-bg: #1a1814;
+            --light-text: #fff;
+            --semitransparent: rgba(0, 0, 0, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background-color: var(--secondary-bg);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            width: 1140px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--gold-color);
+        }
+        
+        .language-select a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .language-select a:hover {
+            color: var(--gold-color);
+        }
+        
+        header {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-color);
+        }
+        
+        nav ul li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover:before, nav ul li a.active:before {
+            width: 100%;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 8px 25px;
+            background: var(--gold-color);
+            color: var(--dark-bg);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid var(--gold-color);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold-color);
+        }
+        
+        .hero {
+            background: linear-gradient(var(--semitransparent), var(--semitransparent)), url('https://source.unsplash.com/random/1920x1080/?blockchain,team') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content h1 span {
+            color: var(--gold-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+        
+        .section-title h2 {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            line-height: 1;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+        
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+        
+        .section-title h3::after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .section-title h3::before {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-leader {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .team-leader-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: var(--secondary-bg);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .team-leader-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .member-card {
+            width: 300px;
+            background-color: var(--secondary-bg);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .member-card:hover .member-img img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--gold-color);
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .member-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .contact-link i {
+            margin-right: 8px;
+            color: var(--gold-color);
+        }
+        
+        .contact-link:hover {
+            color: var(--gold-color);
+        }
+        
+        footer {
+            background: #0c0b09;
+            border-top: 1px solid #37332a;
+            padding: 30px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> u3563855@connect.hku.hk</span>
+                    <span><i class="fas fa-phone"></i> +852 9422 4861</span>
+                </div>
+                <div class="language-select">
+                    <a href="#" class="active">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">HKU <span>TokenFlow</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="proposal.html">Proposal</a></li>
+                        <li><a href="milestones.html">Milestones</a></li>
+                        <li><a href="team.html" class="active">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="cta-button">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our <span>Team</span></h1>
+                <p>Meet the dedicated individuals behind the HKU TokenFlow project, working together to revolutionize campus engagement through blockchain technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <!-- Advisor Section Title -->
+            <div class="section-title">
+                <h3>Advisor</h3>
+            </div>
+            
+            <!-- Teacher Section -->
+            <div class="team-leader">
+                <div class="team-leader-card">
+                    <div class="member-img">
+                        <img src="https://source.unsplash.com/random/600x600/?professor,academic" alt="Advisor">
+                    </div>
+                    <div class="member-info">
+                        <h4 class="member-name">Dr. P.S. Vivien Chan</h4>
+                        <p class="member-role">Advisor</p>
+                        <p>Computer Science Department, HKU</p>
+                        <div class="member-contact">
+                            <a href="tel:+85212345678" class="contact-link"><i class="fas fa-phone"></i> +852 1234 5678</a>
+                            <a href="mailto:teacher@hku.hk" class="contact-link"><i class="fas fa-envelope"></i> teacher@hku.hk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Leader Section -->
+            <div class="section-title" style="margin-top: 60px;">
+                <h3>Team Leader</h3>
+            </div>
+            
+            <div class="team-leader">
+                <div class="team-leader-card">
+                    <div class="member-img">
+                        <img src="https://source.unsplash.com/random/600x600/?professional,student" alt="Team Leader">
+                    </div>
+                    <div class="member-info">
+                        <h4 class="member-name">Liu Yingjie</h4>
+                        <p class="member-role">Team Leader</p>
+                        <p>General Stream, HKU</p>
+                        <div class="member-contact">
+                            <a href="tel:+85294224861" class="contact-link"><i class="fa fa-phone"></i> +852 9422 4861</a>
+                            <a href="mailto:u3563855@connect.hku.hk" class="contact-link"><i class="fa fa-envelope"></i> u3563855@connect.hku.hk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Members Section -->
+            <div class="section-title">
+                <h3>Core Team</h3>
+            </div>
+            
+            <div class="team-members">
+                <!-- Team Member 1 -->
+                <div class="member-card">
+                    <div class="member-img">
+                        <img src="https://source.unsplash.com/random/600x600/?professional,student" alt="Lin Kexian">
+                    </div>
+                    <div class="member-info">
+                        <h4 class="member-name">Lin Kexian</h4>
+                        <p class="member-role">Financial Computing</p>
+                        <p>Computer Science Department, HKU</p>
+                        <div class="member-contact">
+                            <a href="tel:+85257796977" class="contact-link"><i class="fa fa-phone"></i> +852 5779 6977</a>
+                            <a href="mailto:kkkxlin@connect.hku.hk" class="contact-link"><i class="fa fa-envelope"></i> kkkxlin@connect.hku.hk</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 (Deng Zike in middle position) -->
+                <div class="member-card">
+                    <div class="member-img">
+                        <img src="https://source.unsplash.com/random/600x600/?professional,student" alt="Deng Zike">
+                    </div>
+                    <div class="member-info">
+                        <h4 class="member-name">Deng Zike</h4>
+                        <p class="member-role">General Stream</p>
+                        <p>Computer Science Department, HKU</p>
+                        <div class="member-contact">
+                            <a href="tel:+85296054806" class="contact-link"><i class="fa fa-phone"></i> +852 9605 4806</a>
+                            <a href="mailto:u3638025@connect.hku.hk" class="contact-link"><i class="fa fa-envelope"></i> u3638025@connect.hku.hk</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="member-card">
+                    <div class="member-img">
+                        <img src="https://source.unsplash.com/random/600x600/?professional,woman" alt="Kwok Hiu Lam Selina">
+                    </div>
+                    <div class="member-info">
+                        <h4 class="member-name">Kwok Hiu Lam Selina</h4>
+                        <p class="member-role">General Stream</p>
+                        <p>Computer Science Department, HKU</p>
+                        <div class="member-contact">
+                            <a href="tel:+85292197196" class="contact-link"><i class="fa fa-phone"></i> +852 9219 7196</a>
+                            <a href="mailto:u3638378@connect.hku.hk" class="contact-link"><i class="fa fa-envelope"></i> u3638378@connect.hku.hk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HKU TokenFlow | Department of Computer Science, The University of Hong Kong</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 

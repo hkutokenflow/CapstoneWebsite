@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU TokenFlow | Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #cda45e;
+            --dark-bg: #0c0b09;
+            --secondary-bg: #1a1814;
+            --light-text: #fff;
+            --semitransparent: rgba(0, 0, 0, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background-color: var(--secondary-bg);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            width: 1140px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--gold-color);
+        }
+        
+        .language-select a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .language-select a:hover {
+            color: var(--gold-color);
+        }
+        
+        header {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-color);
+        }
+        
+        nav ul li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover:before, nav ul li a.active:before {
+            width: 100%;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 8px 25px;
+            background: var(--gold-color);
+            color: var(--dark-bg);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid var(--gold-color);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold-color);
+        }
+        
+        .hero {
+            background: linear-gradient(var(--semitransparent), var(--semitransparent)), url('https://source.unsplash.com/random/1920x1080/?blockchain,ethereum') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content h1 span {
+            color: var(--gold-color);
+        }
+        
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            line-height: 1;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+        
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+        
+        .section-title h3::after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .section-title h3::before {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .section-title h3::after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .section-title h3::before {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .outline-button {
+            display: inline-block;
+            padding: 8px 25px;
+            background: transparent;
+            color: var(--light-text);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid var(--gold-color);
+        }
+        
+        .outline-button:hover {
+            background: var(--gold-color);
+            color: var(--dark-bg);
+        }
+        
+        footer {
+            background: #0c0b09;
+            border-top: 1px solid #37332a;
+            padding: 30px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        /* Proposal Sections Styling */
+        .proposal-section {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .proposal-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .proposal-slider {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .proposal-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background-color: var(--dark-bg);
+        }
+        
+        .proposal-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        
+        .proposal-slide img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .proposal-content {
+            width: 50%;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .proposal-price {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold-color);
+            margin-bottom: 20px;
+        }
+        
+        .proposal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .proposal-desc {
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .proposal-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            color: var(--gold-color);
+            margin-right: 15px;
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        
+        .feature-text {
+            flex: 1;
+        }
+        
+        .navigation-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background-color: var(--gold-color);
+        }
+        
+        .dot:hover {
+            background-color: var(--gold-color);
+        }
+        
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+        
+        .nav-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 20px;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--gold-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> u3563855@connect.hku.hk</span>
+                    <span><i class="fas fa-phone"></i> +852 9422 4861</span>
+                </div>
+                <div class="language-select">
+                    <a href="#" class="active">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">HKU <span>TokenFlow</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="proposal.html" class="active">Proposal</a></li>
+                        <li><a href="milestones.html">Milestones</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="milestones.html" class="cta-button">View Milestones</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Simple <span>Proposal</span></h1>
+                <p>Learn about our token-based ecosystem initiative designed for HKU campus engagement.</p>
+                <div class="hero-buttons">
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vSVFUFwqrqHU7aglBjS9bN4IjTs68Fw21yIHYp5FLUEfomAlkBEFt-jCgdSpcT9w9F_JAX7dg2qfiO0/pub?embedded=true&format=pdf" class="cta-button" id="downloadSimpleButton" download="HKU_TokenFlow_Simple_Proposal.pdf">Download Simple Proposal</a>
+                    <a href="#" class="cta-button" id="downloadDetailedButton">Download Detailed Proposal</a>
+                    <a href="milestones.html" class="outline-button">View Milestones</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal Section -->
+    <section class="proposal-section">
+        <div class="proposal-container">
+            <div class="proposal-slider">
+                <!-- Introduction Slide -->
+                <div class="proposal-slide active">
+                    <img src="Picture/Proposal.jpg" alt="Proposal Introduction">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Introduction</div>
+                        <p class="proposal-desc">
+                            Recent decades have witnessed the booming growth of blockchain technology worldwide. There have been studies that discuss the benefits of implementing a blockchain token system in an educational environment. Our group targets to initialize a token-based ecosystem in HKU, with the aims of incentivizing student engagement in campus activities, while educating them about blockchain technology.
+                        </p>
+                        <p class="proposal-desc">
+                            We will leverage experience from existing blockchain-based projects, while innovating to address the unique needs of HKU members. Ultimately, our goal is to promote collaboration and innovation, as well as enriching the overall student experience at HKU.
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Incentivize student engagement in campus activities</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Educate students about blockchain technology</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Create a vibrant token-based ecosystem within HKU</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Background Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Background">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Background</div>
+                        <p class="proposal-desc">
+                            Inspired by the MIT bitcoin experiment and NTUST smart campus project, our group hopes to leverage existing blockchain technology and construct a token-based economy within HKU.
+                        </p>
+                        <p class="proposal-desc">
+                            The relevant studies have shown the rewarding mechanism could incentivize student engagement in campus activities. We also aim to raise students' awareness about blockchain technology through this project.
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Shortcomings of the token system: Will consider negative effects and potential discouragement for students</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Added value: Questionnaires may be necessary to gather student feedback</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">System justification: Carefully consider the reasons why we need to build this system</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Literature Review Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Literature Review">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Brief Literature Review</div>
+                        <p class="proposal-desc">
+                            Our project is informed by several successful implementations of blockchain technology in educational settings:
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">NTUST smart campus project: Integrated blockchain technology for campus services</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">MIT bitcoin experiment: Distribution of Bitcoin to students to promote adoption</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Smiley coin experiment: Educational cryptocurrency implementation</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">HKUST e-HKD pilot programme: Local implementation of digital currency</div>
+                            </div>
+                        </div>
+                        <p class="proposal-desc" style="margin-top: 20px;">
+                            We will provide a comprehensive summary and analysis of token system implementations, considering both advantages and shortcomings to inform our approach.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Objectives Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Objective">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Objectives</div>
+                        <p class="proposal-desc">
+                            Our primary objective is to initiate a token-based ecosystem in HKU that incentivizes student engagement in campus activities and educates them about blockchain technologies. For safety concerns, we will not associate HKU tokens with real fiat currency or digital currency.
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Club and activities reward system to encourage participation</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Uprint: Combine tokens with printing quota system</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Integration with canteen services and HKU gift store</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Token-based tickets to concerts and other campus events</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Student services and products marketplace (second-hand goods, tutoring, etc.)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Method Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Method">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Method</div>
+                        <p class="proposal-desc">
+                            We will implement a private blockchain on the Ethereum platform, which offers robust smart contract functionality and a well-established development ecosystem.
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Private Ethereum blockchain for security and control</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">User-friendly UI System (Website and/or Android App)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Smart contract development for token management</div>
+                            </div>
+                        </div>
+                        <p class="proposal-desc" style="margin-top: 20px;">
+                            Our technology stack will include comprehensive details on architecture design and functional specifications for the token system platform. We will justify our choice of Ethereum over other platforms through literature review and technical analysis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Deliverables Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Deliverables">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Expected Deliverables</div>
+                        <p class="proposal-desc">
+                            Our final report will include comprehensive documentation of the entire project:
+                        </p>
+                        <div class="proposal-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Introduction, aims and objectives of the project</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Literature review (blockchain technology, case studies, regulations, legal/safety concerns)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Methodology (technologies used)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Development details of HKU TokenFlow (Back end: Ethereum blockchain network, smart contract)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Front end: Android mobile app with detailed UI/UX design</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div class="feature-text">Conclusion and future work</div>
+                            </div>
+                        </div>
+                        <p class="proposal-desc" style="margin-top: 20px;">
+                            Due to time constraints, we will focus on implementing the most critical functions of the system, with a clear roadmap for future development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone Plan Slide -->
+                <div class="proposal-slide">
+                    <img src="Picture/Proposal.jpg" alt="Milestone Plan">
+                    <div class="proposal-content">
+                        <div class="proposal-title">Milestone Plan</div>
+                        <p class="proposal-desc">
+                            Our project follows a structured timeline with specific deliverables:
+                        </p>
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: white;">
+                            <tr style="border-bottom: 1px solid var(--gold-color);">
+                                <th style="text-align: left; padding: 10px 5px; color: var(--gold-color);">Timeline</th>
+                                <th style="text-align: left; padding: 10px 5px; color: var(--gold-color);">Deliverable</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">3/10</td>
+                                <td style="padding: 8px 5px;">Detailed Proposal</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">4/7</td>
+                                <td style="padding: 8px 5px;">Update 1: Introduction: Literature Review + Methodology</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">5/5</td>
+                                <td style="padding: 8px 5px;">Update 2: Implementation of Ethereum Platform</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">5/18</td>
+                                <td style="padding: 8px 5px;">Full draft of UI design for the project</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">6/1</td>
+                                <td style="padding: 8px 5px;">Interim Report and Presentation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">6/16</td>
+                                <td style="padding: 8px 5px;">Update 3: First draft of full report</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">7/7</td>
+                                <td style="padding: 8px 5px;">Update 4: Finalized token system</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 8px 5px;">7/15</td>
+                                <td style="padding: 8px 5px;">Project Webpage</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 5px;">7/18</td>
+                                <td style="padding: 8px 5px;">Finalized Report</td>
+                            </tr>
+                        </table>
+                        <p class="proposal-desc">
+                            <strong>Concern:</strong> Due to time restrictions for implementation, we will refine the progress plan as time proceeds and focus on implementing the most critical functions of the system.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="navigation-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="nav-buttons">
+                    <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                    <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HKU TokenFlow | Department of Computer Science, The University of Hong Kong</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for slide navigation -->
+    <script>
+        let slideIndex = 1;
+        let slideTimer; // 用于存储定时器
+        
+        // 初始化显示和自动轮播
+        showSlide(slideIndex);
+        startAutoSlide();
+        
+        // 自动轮播功能
+        function startAutoSlide() {
+            // 清除之前的定时器（如果有）
+            clearInterval(slideTimer);
+            // 设置新的定时器，每5秒切换一次
+            slideTimer = setInterval(function() {
+                changeSlide(1);
+            }, 5000);
+        }
+        
+        // 手动切换幻灯片时重置定时器
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+            // 重置自动轮播计时器
+            startAutoSlide();
+        }
+        
+        // 直接跳转到特定幻灯片时重置定时器
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+            // 重置自动轮播计时器
+            startAutoSlide();
+        }
+        
+        function showSlide(n) {
+            const slides = document.getElementsByClassName("proposal-slide");
+            const dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        // 当用户鼠标悬停在幻灯片上时暂停自动轮播
+        document.querySelector('.proposal-slider').addEventListener('mouseenter', function() {
+            clearInterval(slideTimer);
+        });
+        
+        // 当用户鼠标离开幻灯片时恢复自动轮播
+        document.querySelector('.proposal-slider').addEventListener('mouseleave', function() {
+            startAutoSlide();
+        });
+
+        document.getElementById('downloadDetailedButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("The detailed proposal will be released on March 10th.");
+        });
+    </script>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 
