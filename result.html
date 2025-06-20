@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKU TokenFlow | Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #cda45e;
+            --dark-bg: #0c0b09;
+            --secondary-bg: #1a1814;
+            --light-text: #fff;
+            --semitransparent: rgba(0, 0, 0, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background-color: var(--secondary-bg);
+            padding: 10px 0;
+            font-size: 14px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 1140px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--gold-color);
+        }
+        
+        .language-select a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .language-select a:hover {
+            color: var(--gold-color);
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 40px;
+            left: 0;
+            z-index: 999;
+            background-color: rgba(12, 11, 9, 0.9);
+            transition: all 0.5s;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-color);
+        }
+        
+        nav ul li a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold-color);
+            bottom: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover:before, nav ul li a.active:before {
+            width: 100%;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 8px 25px;
+            background: var(--gold-color);
+            color: var(--dark-bg);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 2px solid var(--gold-color);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--gold-color);
+        }
+        
+        .main-content {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            line-height: 1;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+        
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold-color);
+        }
+        
+        .section-title h3::after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: var(--gold-color);
+            margin: 4px 10px;
+        }
+        
+        .content-section {
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        
+        .result-section {
+            background: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(205, 164, 94, 0.2);
+        }
+        
+        .result-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--gold-color);
+            text-align: center;
+        }
+        
+        .result-section h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+            color: var(--gold-color);
+        }
+        
+        .result-section h6 {
+            font-size: 18px;
+            margin: 25px 0 10px 0;
+            color: var(--light-text);
+            font-weight: 600;
+        }
+        
+        .result-section p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        
+        .result-section ul {
+            margin: 15px 0 15px 20px;
+            color: #ccc;
+        }
+        
+        .result-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .screenshot-placeholder {
+            background: #333;
+            border: 2px dashed var(--gold-color);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--gold-color);
+            font-style: italic;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .screenshot-item {
+            background: #333;
+            border: 2px solid rgba(205, 164, 94, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            color: var(--gold-color);
+            font-style: italic;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .screenshot-item img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .feature-list {
+            background: rgba(205, 164, 94, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .feature-list h6 {
+            color: var(--gold-color);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #0c0b09;
+            border-top: 1px solid #37332a;
+            padding: 30px 0;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> u3563855@connect.hku.hk</span>
+                    <span><i class="fas fa-phone"></i> +852 9422 4861</span>
+                </div>
+                <div class="language-select">
+                    <a href="#" class="active">En</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">HKU <span>TokenFlow</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="proposal.html">Proposal</a></li>
+                        <li><a href="milestones.html">Milestones</a></li>
+                        <li><a href="update.html">Updates</a></li>
+                        <li><a href="result.html" class="active">Results</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="proposal.html" class="cta-button">View Proposal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Built</h2>
+                <h3>Our Awesome Android App! 📱</h3>
+            </div>
+            
+            <!-- Main Introduction -->
+            <div class="result-section">
+                <h4>Welcome to Our Amazing Android App! 🎉</h4>
+                <p>Hey there! So we've been busy little bees 🐝 creating this super cool Android app for HKU. Think of it as your digital campus buddy that rewards you with tokens just for being awesome and participating in campus life!</p>
+                
+                <p>Here's the deal: our app uses something called HKUTokens (fancy, right?) to make campus activities way more exciting. We've got three main characters in our story:</p>
+                
+                <ul>
+                    <li><strong>Admins</strong> - The puppet masters 🎭 who set up events and decide how many tokens each activity is worth</li>
+                    <li><strong>Vendors</strong> - The generous folks who offer cool stuff to spend your tokens on (like getting your printing done or grabbing HKU merchandise)</li>
+                    <li><strong>Students</strong> - That's you! 🎓 Scan QR codes at events, collect tokens like a digital treasure hunter, and trade them for real rewards!</li>
+                </ul>
+                
+                <p>Our app is like a Swiss Army knife with four main sections: sign-in/sign-up, admin control center, vendor marketplace, and your personal student dashboard. Behind the scenes, we've got all the techy stuff humming along with databases keeping track of everything!</p>
+            </div>
+
+            <!-- 5.1 Login and Register -->
+            <div class="result-section">
+                <h5>1. Login and Register</h5>
+                
+                <h6>1.1 Getting In (aka Login) 🔐</h6>
+                <p>First things first - you gotta get into the app! Our login screen is where the magic begins, complete with all the usual suspects: username, password, and a little puzzle to prove you're human.</p>
+                
+                <div class="feature-list">
+                    <h6>Cool Features We Added:</h6>
+                    <ul>
+                        <li><strong>Remember Me Magic:</strong> Tired of typing your password every single time? Just check that little "remember me" box and voilà! Your login details are saved for next time. No more password headaches! 🧠</li>
+                        <li><strong>Peek-a-Boo Password:</strong> Ever typed your password and wondered if you got it right? Just tap the little eye icon to reveal or hide your password. It's like having X-ray vision! 👁️</li>
+                        <li><strong>Smart Login:</strong> Our app is pretty clever - it automatically figures out if you're a student, admin, or vendor and takes you to the right place. No need to tell it who you are!</li>
+                        <li><strong>New Here? No Problem:</strong> Don't have an account yet? Just hit the "Register" button and we'll get you set up in no time!</li>
+                    </ul>
+                </div>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Login Interface - Basic View.png" alt="Login Interface - Basic View" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Login - Password Hidden.png" alt="Login - Password Hidden" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Login - Password Visible.png" alt="Login - Password Visible" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <p>Pretty straightforward - type in your username and password, and you're golden! ✨</p>
+                <ul>
+                    <li><strong>Oops, Wrong Info:</strong> If you typo your username or password, don't worry! We'll gently let you know with a friendly message. Happens to the best of us! 🤷‍♀️</li>
+                    <li><strong>Puzzle Problems:</strong> Can't crack the verification code? No biggie - just try again! Think of it as a mini brain teaser to start your day. 🧩</li>
+                </ul>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Verification Code Error.png" alt="Verification Code Error" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Incorrect Login Credentials.png" alt="Incorrect Login Credentials" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <h6>1.2 Join the Club (Student Registration) 🎓</h6>
+                <p>New to the party? We've got you covered! You can sign up as either a student (most likely you!) or a vendor (if you're one of the cool businesses on campus).</p>
+                
+                <div class="screenshot-placeholder">
+                    <img src="Picture/Registration Type Selection Interface.png" alt="Registration Type Selection Interface" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+                </div>
+                
+                <p>Now, we're dealing with tokens here (digital money, kinda!), so we need to be a bit picky about who gets in. Don't worry though - it's just some basic security stuff to keep everyone safe! 🛡️</p>
+                
+                <ul>
+                    <li><strong>Email Verification Dance:</strong> We'll send a secret code to your email - just type it in to prove that email really belongs to you! 📧</li>
+                    <li><strong>HKU Email Only:</strong> You'll need your official HKU email address. Sorry, no Gmail or Yahoo here - we're keeping it in the family! 🏫</li>
+                    <li><strong>Password Match Game:</strong> Type your password twice to make sure you didn't make any typos. We've all been there! 🔑</li>
+                    <li><strong>Strong Password Rule:</strong> Your password needs to have both letters and numbers, and be at least 6 characters long. Think of it as a mini workout for your keyboard! 💪</li>
+                    <li><strong>The Fine Print:</strong> You'll need to agree to our privacy policy. Don't worry, we're not selling your data to aliens! 👽</li>
+                </ul>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Email Verification Process.png" alt="Email Verification Process" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Email Code Entry.png" alt="Email Code Entry" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Password Requirements Check.png" alt="Password Requirements Check" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Privacy Policy Agreement.png" alt="Privacy Policy Agreement" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <h6>1.3 For the Business Folks (Vendor Registration) 🏪</h6>
+                <p>Got a business on campus? Sweet! Just fill in your details and we'll get you set up. But hold on - you'll need to wait for our admin team to give you the thumbs up before you can start offering your goodies to students! Think of it as a VIP approval process. 😎</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Registration Form.png" alt="Vendor Registration Form" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Username Already Exists Error.png" alt="Username Already Exists Error" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5.2 Admin -->
+            <div class="result-section">
+                <h5>2. The Control Center (Admin Zone) 👑</h5>
+                <p>Welcome to mission control! Our admins are like the puppet masters behind the curtain - they set up all the events, approve vendors, decide how many tokens each activity is worth, and keep an eye on all the token action happening on campus. Pretty cool, right?</p>
+                
+                <h6>2.1 Admin Command Center 🎮</h6>
+                <p>See that little menu icon in the top-left corner? That's your gateway to admin powers! One click and boom - you've got access to all the admin goodies. Don't worry, we'll take you straight to the main dashboard when you log in.</p>
+                
+                <div class="screenshot-placeholder">
+                    <img src="Picture/Admin Menu Interface.png" alt="Admin Menu Interface" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+                </div>
+                
+                <h6>2.2 The Dashboard of Dreams 📊</h6>
+                <p>This is where the magic numbers live! Admins can see all the juicy stats about what's been happening - how many tokens are flying around, who's been active, and all that good stuff. Want to see this week's action or the whole month? Just toggle between the views like a data ninja! 🥷</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Weekly Statistics View.png" alt="Weekly Statistics View" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Monthly Statistics View.png" alt="Monthly Statistics View" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>2.3 Event Party Planner ✨</h6>
+                <p>Time to play event coordinator! Admins can see all the campus happenings in one neat list. Want to add a new event? Delete one that got cancelled? Update the details? Or just browse through what's coming up? This is your one-stop shop for all things events!</p>
+                
+                <div class="screenshot-placeholder">
+                    <img src="Picture/Event List Management Interface.png" alt="Event List Management Interface" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px;">
+                </div>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Add New Event Dialog.png" alt="Add New Event Dialog" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Event Added Successfully.png" alt="Event Added Successfully" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Event ID Display.png" alt="Event ID Display" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>2.4 Manage Vendor</h6>
+                <p>In the manage vendor interface, the admin can see the vendor registration application. The approval status is divided into three types: rejected, approved, and pending.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Approval List - Pending.png" alt="Vendor Approval List - Pending" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Approval Dialog.png" alt="Vendor Approval Dialog" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Status - Rejected.png" alt="Vendor Status - Rejected" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>2.5 Recent Transaction</h6>
+                <p>In recent transactions, you can view the transaction status. The transaction table contains four attributes: date, src, dst, and amount.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Recent Transactions List.png" alt="Recent Transactions List" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Transaction Search Results.png" alt="Transaction Search Results" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5.3 Vendor -->
+            <div class="result-section">
+                <h5>3. Vendor</h5>
+                
+                <h6>3.1 Vendor Menu</h6>
+                <p>The following screenshot shows the navigation menu after logging in with a vendor account.</p>
+                
+                <div class="screenshot-placeholder">
+                    <img src="Picture/Vendor Menu Interface.png" alt="Vendor Menu Interface" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+                </div>
+                
+                <h6>3.2 Vendor Home</h6>
+                <p>In the vendor home page, you can view transactions related to the current vendor user. At the top, you can see the total vendor balance.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Home - Monthly View.png" alt="Vendor Home - Monthly View" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Vendor Transactions Search.png" alt="Vendor Transactions Search" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>3.3 Edit Vouchers</h6>
+                <p>Vouchers are issued by vendors. Vendors can manage the voucher list when entering edit vouchers. Vendors can add, delete, modify and query the data in the list.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Voucher List Management.png" alt="Voucher List Management" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Add New Voucher Dialog.png" alt="Add New Voucher Dialog" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Voucher Details View.png" alt="Voucher Details View" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>3.4 Change Password</h6>
+                <p>Password changes also require a second confirmation, and a pop-up window will appear to prompt whether to confirm the change.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Password Change Form.png" alt="Password Change Form" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Password Change Confirmation.png" alt="Password Change Confirmation" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Password Changed Successfully.png" alt="Password Changed Successfully" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5.4 Student -->
+            <div class="result-section">
+                <h5>4. Student</h5>
+                
+                <h6>4.1 Student Menu</h6>
+                <p>The following screenshot shows the navigation menu after logging in with a student account.</p>
+                
+                <div class="screenshot-placeholder">
+                    <img src="Picture/Student Menu Interface.png" alt="Student Menu Interface" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+                </div>
+                
+                <h6>4.2 Student Home</h6>
+                <p>In the student home page, you can see the wallet balance and the current student's recent transactions.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Student Home - Wallet Balance.png" alt="Student Home - Wallet Balance" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Student Transaction Search.png" alt="Student Transaction Search" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>4.3 Token Hunting Time! 🎯</h6>
+                <p>This is where the fun begins! Students can browse all the amazing events happening on campus (and see exactly how many tokens each one is worth - ka-ching! 💰). When you're at an event, just whip out your phone, scan that QR code, and watch those tokens roll into your digital wallet!</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Event List for Check-in.png" alt="Event List for Check-in" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/QR Code Scanner Interface.png" alt="QR Code Scanner Interface" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Check-in Successful.png" alt="Check-in Successful" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Already Checked In.png" alt="Already Checked In" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>4.4 Shopping Spree Time! 🛍️</h6>
+                <p>Now for the best part - spending those hard-earned tokens! Think of this as your campus marketplace where every item has a price tag in tokens instead of dollars. Each reward is displayed on its own card showing exactly how many tokens you need. Got enough? Just tap and treat yourself!</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Redeem Rewards Grid.png" alt="Redeem Rewards Grid" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Reward Redemption Confirmation.png" alt="Reward Redemption Confirmation" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>4.5 Your Treasure Chest 💎</h6>
+                <p>Got some goodies? They all live here in your personal rewards collection! Think of it as your digital wallet for all the cool stuff you've redeemed. Ready to use that printing credit or discount voucher? Just hit the "use" button and boom - it's activated!</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/Your Rewards List.png" alt="Your Rewards List" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Use Reward Confirmation.png" alt="Use Reward Confirmation" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Reward Used Successfully.png" alt="Reward Used Successfully" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                
+                <h6>4.6 The Nerdy Stuff (But Made Fun!) 🤓</h6>
+                <p>Curious about how all this token magic works? This section is like a mini crash course in blockchain and tokenization - but don't worry, we've made it way less scary than your computer science textbook! Learn about the cool tech powering your campus token experience.</p>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="Picture/About HKU TokenFlow - Blockchain Concepts.png" alt="About HKU TokenFlow - Blockchain Concepts" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="Picture/Educational Content - Tokenization.png" alt="Educational Content - Tokenization" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HKU TokenFlow | Department of Computer Science, The University of Hong Kong</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript for fixed header on scroll -->
+    <script>
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("scrolled", window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
