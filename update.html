@@ -372,6 +372,27 @@
                         <a href="https://docs.google.com/presentation/d/e/2PACX-1vTmX0sSToBGhIXVMbFsBmjt3_ZpMS42LhxduYgd3ipcy3KLZyRLFaNj2ywoyGOV6r1lVfo0AvQPPX19/pub?start=true&loop=true&delayms=10000" 
                            target="_blank" class="update-button">View Presentation</a>
                     </div>
+
+                    <!-- Update 4 Slide -->
+                    <div class="update-card">
+                        <div class="icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Update 4 Slide</h4>
+                        <p>Fourth project update presentation showcasing final implementation details and project completion status.</p>
+                        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQYgb2jvlravzaspQhEDdB-Ut5Q-6lE58OQpaClwTB0fVeEBm8-QWvWMr_wPPNTob5E0vbfn5SmzgkR/pub?start=true&loop=true&delayms=3000" 
+                           target="_blank" class="update-button">View Presentation</a>
+                    </div>
+
+                    <!-- Final Report -->
+                    <div class="update-card">
+                        <div class="icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Final Report</h4>
+                        <p>Comprehensive final project report documenting the complete development process, technical achievements, and project outcomes.</p>
+                        <a href="#" onclick="showFinalReportMessage(event)" class="update-button">View Report</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -389,6 +410,12 @@
 
     <!-- JavaScript for fixed header on scroll -->
     <script>
+        // Function to show final report message
+        function showFinalReportMessage(event) {
+            event.preventDefault();
+            alert("Final Report will release on 1st August after final submission");
+        }
+
         window.addEventListener("scroll", function() {
             var header = document.querySelector("header");
             header.classList.toggle("scrolled", window.scrollY > 0);
